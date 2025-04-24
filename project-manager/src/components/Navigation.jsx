@@ -6,7 +6,7 @@ const Navigation = () => {
   return (
     <Navbar expand="lg" fixed="top" className={styles.navbar}> {/* Barre de navigation fixe en haut, responsive */}
       <Container> {/* Conteneur pour centrer et organiser le contenu */}
-        <Navbar.Brand className={styles.brand}>Gestion de Projets</Navbar.Brand> {/* Nom/logo de l'application */}
+        <Navbar.Brand className={styles.brand}>Project Manager</Navbar.Brand> {/* Nom/logo de l'application */}
         <Navbar.Toggle aria-controls="basic-navbar-nav" /> {/* Bouton pour afficher/cacher la navigation en petit écran */}
         <Navbar.Collapse id="basic-navbar-nav"> {/* Conteneur des liens de navigation */}
           <Nav className="ms-auto"> {/* Aligne les liens à droite */}
