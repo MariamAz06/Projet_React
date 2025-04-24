@@ -1,0 +1,81 @@
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+.card:hover {
+  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.taskContent {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.checkbox {
+  margin: 0;
+}
+
+.title {
+  color: #000000;
+  font-size: 1rem;
+}
+
+.completed {
+  color: rgba(0, 0, 0, 0.5);
+  text-decoration: line-through;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.badge {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.highPriority {
+  background: rgba(255, 59, 48, 0.2);
+  color: #ff3b30;
+}
+
+.mediumPriority {
+  background: rgba(255, 149, 0, 0.2);
+  color: #ff9500;
+}
+
+.lowPriority {
+  background: rgba(52, 199, 89, 0.2);
+  color: #34c759;
+}
+
+.deleteButton {
+  transition: all 0.3s ease;
+}
+
+.deleteButton:hover {
+  transform: translateY(-2px);
+}
+
+.description {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.25rem;
+}

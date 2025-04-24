@@ -1,0 +1,1943 @@
+/* Variables CSS globales */
+:root {
+  /* Couleurs principales */
+  --primary-color: #646cff;
+  --primary-dark: #535bf2;
+  --secondary-color: #ff6b00;
+  --secondary-light: #ff9d00;
+  
+  /* Couleurs de fond */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-dark: #212529;
+  
+  /* Couleurs de texte */
+  --text-primary: #212529;
+  --text-secondary: #6c757d;
+  --text-light: #ffffff;
+  
+  /* Espacements */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  /* Bordures et ombres */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 16px;
+  --border-radius-xl: 24px;
+  
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 8px 15px rgba(0, 0, 0, 0.2);
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Tailles de police */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-xxl: 2rem;
+  
+  /* Z-index */
+  --z-index-dropdown: 1000;
+  --z-index-sticky: 1020;
+  --z-index-fixed: 1030;
+  --z-index-modal-backdrop: 1040;
+  --z-index-modal: 1050;
+  --z-index-popover: 1060;
+  --z-index-tooltip: 1070;
+}
+
+/* Media Queries pour la responsivité */
+@media (max-width: 576px) {
+  :root {
+    --spacing-md: 0.75rem;
+    --spacing-lg: 1rem;
+    --spacing-xl: 1.5rem;
+    --font-size-lg: 1.1rem;
+    --font-size-xl: 1.3rem;
+    --font-size-xxl: 1.8rem;
+  }
+  
+  .navbar-custom {
+    padding: var(--spacing-sm) 0;
+  }
+  
+  .task-card {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .badge-custom {
+    padding: 0.3em 0.6em;
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+  :root {
+    --spacing-md: 0.875rem;
+    --spacing-lg: 1.25rem;
+    --spacing-xl: 1.75rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+  :root {
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+  }
+}
+
+/* Animations et effets visuels avancés */
+
+/* Effet de brillance sur les cartes */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.75s;
+  z-index: 1;
+}
+
+.card:hover::before {
+  animation: shine 1.5s infinite;
+}
+
+@keyframes shine {
+  100% {
+    left: 150%;
+  }
+}
+
+/* Animation de chargement */
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid rgba(100, 108, 255, 0.2);
+  border-radius: 50%;
+  border-top: 4px solid var(--primary-color);
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Animation de pulsation pour les boutons importants */
+.pulse-button {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(100, 108, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(100, 108, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(100, 108, 255, 0);
+  }
+}
+
+/* Effet de flottement pour les cartes */
+.float-card {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Animation d'apparition progressive */
+.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Animation de rebond pour les notifications */
+.bounce-in {
+  animation: bounceIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+  70% {
+    opacity: 0.9;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Effet de glissement pour les listes */
+.slide-in {
+  animation: slideIn 0.5s ease-out forwards;
+  opacity: 0;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Effet de survol 3D pour les cartes */
+.card-3d {
+  transition: transform 0.5s;
+  transform-style: preserve-3d;
+}
+
+.card-3d:hover {
+  transform: rotateY(5deg) rotateX(5deg);
+}
+
+/* Effet de focus pour les champs de formulaire */
+.form-control:focus {
+  animation: focusPulse 1.5s infinite;
+}
+
+@keyframes focusPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(100, 108, 255, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 5px rgba(100, 108, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(100, 108, 255, 0);
+  }
+}
+
+/* Effet de vague pour les boutons */
+.wave-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.wave-button::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.wave-button:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(20, 20);
+    opacity: 0;
+  }
+}
+
+/* Effet de survol pour les images */
+.img-hover-zoom {
+  overflow: hidden;
+}
+
+.img-hover-zoom img {
+  transition: transform 0.5s ease;
+}
+
+.img-hover-zoom:hover img {
+  transform: scale(1.1);
+}
+
+/* Effet de texte qui s'écrit */
+.typing-text {
+  overflow: hidden;
+  border-right: 2px solid var(--primary-color);
+  white-space: nowrap;
+  animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--primary-color) }
+}
+
+/* Effet de particules pour les arrière-plans */
+.particles-bg {
+  position: relative;
+  overflow: hidden;
+}
+
+.particles-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  animation: particleMove 20s linear infinite;
+  z-index: -1;
+}
+
+@keyframes particleMove {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 100px;
+  }
+}
+
+/* NOUVELLES ANIMATIONS CRÉATIVES */
+
+/* Effet de néon pour les titres */
+.neon-text {
+  color: #fff;
+  text-shadow: 0 0 5px var(--primary-color),
+               0 0 10px var(--primary-color),
+               0 0 20px var(--primary-color),
+               0 0 40px var(--primary-color);
+  animation: neonPulse 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes neonPulse {
+  from {
+    text-shadow: 0 0 5px var(--primary-color),
+                 0 0 10px var(--primary-color),
+                 0 0 20px var(--primary-color),
+                 0 0 40px var(--primary-color);
+  }
+  to {
+    text-shadow: 0 0 5px var(--primary-color),
+                 0 0 15px var(--primary-color),
+                 0 0 25px var(--primary-color),
+                 0 0 50px var(--primary-color);
+  }
+}
+
+/* Effet de morphing pour les boutons */
+.morph-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.morph-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.morph-button:hover {
+  color: white;
+  transform: translateY(-3px);
+}
+
+.morph-button:hover::before {
+  opacity: 1;
+}
+
+/* Effet de carte holographique */
+.holographic {
+  position: relative;
+  overflow: hidden;
+}
+
+.holographic::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 30%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 70%,
+    transparent 100%
+  );
+  transform: rotate(45deg);
+  animation: holographic 3s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes holographic {
+  0% {
+    transform: rotate(45deg) translateY(-100%);
+  }
+  100% {
+    transform: rotate(45deg) translateY(100%);
+  }
+}
+
+/* Effet de distorsion pour les images */
+.distortion-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.distortion-effect img {
+  transition: transform 0.5s ease;
+}
+
+.distortion-effect:hover img {
+  transform: scale(1.1) skew(-5deg, 5deg);
+  filter: brightness(1.2) contrast(1.1);
+}
+
+/* Effet de texte qui se décompose */
+.text-glitch {
+  position: relative;
+  animation: glitch 1s linear infinite;
+}
+
+.text-glitch::before,
+.text-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.text-glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 var(--secondary-color);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.text-glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 var(--primary-color);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+@keyframes glitch-anim {
+  0% {
+    clip: rect(42px, 9999px, 44px, 0);
+  }
+  5% {
+    clip: rect(12px, 9999px, 59px, 0);
+  }
+  10% {
+    clip: rect(48px, 9999px, 29px, 0);
+  }
+  15% {
+    clip: rect(42px, 9999px, 73px, 0);
+  }
+  20% {
+    clip: rect(63px, 9999px, 27px, 0);
+  }
+  25% {
+    clip: rect(34px, 9999px, 55px, 0);
+  }
+  30% {
+    clip: rect(86px, 9999px, 73px, 0);
+  }
+  35% {
+    clip: rect(20px, 9999px, 20px, 0);
+  }
+  40% {
+    clip: rect(26px, 9999px, 60px, 0);
+  }
+  45% {
+    clip: rect(25px, 9999px, 66px, 0);
+  }
+  50% {
+    clip: rect(57px, 9999px, 98px, 0);
+  }
+  55% {
+    clip: rect(5px, 9999px, 46px, 0);
+  }
+  60% {
+    clip: rect(82px, 9999px, 31px, 0);
+  }
+  65% {
+    clip: rect(54px, 9999px, 27px, 0);
+  }
+  70% {
+    clip: rect(28px, 9999px, 99px, 0);
+  }
+  75% {
+    clip: rect(45px, 9999px, 69px, 0);
+  }
+  80% {
+    clip: rect(23px, 9999px, 85px, 0);
+  }
+  85% {
+    clip: rect(54px, 9999px, 84px, 0);
+  }
+  90% {
+    clip: rect(45px, 9999px, 47px, 0);
+  }
+  95% {
+    clip: rect(37px, 9999px, 20px, 0);
+  }
+  100% {
+    clip: rect(82px, 9999px, 31px, 0);
+  }
+}
+
+@keyframes glitch-anim2 {
+  0% {
+    clip: rect(42px, 9999px, 44px, 0);
+  }
+  5% {
+    clip: rect(12px, 9999px, 59px, 0);
+  }
+  10% {
+    clip: rect(48px, 9999px, 29px, 0);
+  }
+  15% {
+    clip: rect(42px, 9999px, 73px, 0);
+  }
+  20% {
+    clip: rect(63px, 9999px, 27px, 0);
+  }
+  25% {
+    clip: rect(34px, 9999px, 55px, 0);
+  }
+  30% {
+    clip: rect(86px, 9999px, 73px, 0);
+  }
+  35% {
+    clip: rect(20px, 9999px, 20px, 0);
+  }
+  40% {
+    clip: rect(26px, 9999px, 60px, 0);
+  }
+  45% {
+    clip: rect(25px, 9999px, 66px, 0);
+  }
+  50% {
+    clip: rect(57px, 9999px, 98px, 0);
+  }
+  55% {
+    clip: rect(5px, 9999px, 46px, 0);
+  }
+  60% {
+    clip: rect(82px, 9999px, 31px, 0);
+  }
+  65% {
+    clip: rect(54px, 9999px, 27px, 0);
+  }
+  70% {
+    clip: rect(28px, 9999px, 99px, 0);
+  }
+  75% {
+    clip: rect(45px, 9999px, 69px, 0);
+  }
+  80% {
+    clip: rect(23px, 9999px, 85px, 0);
+  }
+  85% {
+    clip: rect(54px, 9999px, 84px, 0);
+  }
+  90% {
+    clip: rect(45px, 9999px, 47px, 0);
+  }
+  95% {
+    clip: rect(37px, 9999px, 20px, 0);
+  }
+  100% {
+    clip: rect(82px, 9999px, 31px, 0);
+  }
+}
+
+/* Effet de feu pour les boutons */
+.fire-button {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, #ff6b00, #ff9d00);
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.fire-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.fire-button:hover::before {
+  transform: translateX(100%);
+}
+
+.fire-button:hover {
+  box-shadow: 0 0 15px rgba(255, 107, 0, 0.7);
+  transform: translateY(-3px);
+}
+
+/* Effet de carte qui se retourne */
+.flip-card {
+  perspective: 1000px;
+  height: 200px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+}
+
+.flip-card-front {
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+  color: white;
+}
+
+.flip-card-back {
+  background: linear-gradient(45deg, var(--secondary-color), #ff9d00);
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* Effet de texte qui se décompose et se recompose */
+.text-split {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-split::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: var(--primary-color);
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  animation: split-text 3s infinite;
+}
+
+@keyframes split-text {
+  0%, 100% {
+    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+  }
+  50% {
+    clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+  }
+}
+
+/* Effet de carte avec bordure animée */
+.border-animation {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.border-animation::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+  background-size: 200% 100%;
+  animation: border-animation 3s linear infinite;
+  z-index: -1;
+}
+
+.border-animation::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  background: white;
+  border-radius: 12px;
+  z-index: -1;
+}
+
+@keyframes border-animation {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 200% 0%;
+  }
+}
+
+/* Effet de texte qui se décompose en particules */
+.particle-text {
+  position: relative;
+  overflow: hidden;
+}
+
+.particle-text::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: particle-text 3s infinite;
+}
+
+@keyframes particle-text {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+/* Styles pour la barre de navigation */
+.navbar-custom {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-sm);
+  transition: var(--transition-normal);
+  padding: var(--spacing-md) 0;
+}
+
+.navbar-custom .nav-link {
+  color: var(--primary-color);
+  font-weight: 500;
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin: 0 var(--spacing-xs);
+  border-radius: var(--border-radius-md);
+  transition: var(--transition-normal);
+  cursor: default;
+  font-size: var(--font-size-md);
+}
+
+.navbar-custom .nav-link:hover {
+  background: var(--primary-color);
+  color: var(--text-light);
+  transform: translateY(-2px);
+}
+
+.navbar-custom .navbar-brand {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+}
+
+/* Styles pour les cartes de tâches */
+.task-card {
+  background: var(--bg-primary);
+  border: none;
+  box-shadow: var(--shadow-md);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-md);
+  position: relative;
+}
+
+.task-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: var(--shadow-lg);
+}
+
+.task-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transform: translateX(-100%);
+  transition: 0.5s;
+}
+
+.task-card:hover::before {
+  transform: translateX(100%);
+}
+
+.task-title {
+  font-size: var(--font-size-md);
+  font-weight: 500;
+  color: var(--text-primary);
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 10px;
+}
+
+.task-title::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 4px;
+  height: 0;
+  background: var(--primary-color);
+  transition: height 0.3s ease;
+}
+
+.task-card:hover .task-title::before {
+  height: 80%;
+  transform: translateY(-50%);
+}
+
+.task-completed {
+  text-decoration: line-through;
+  color: var(--text-secondary);
+  opacity: 0.7;
+  position: relative;
+}
+
+.task-completed::after {
+  content: '✓';
+  position: absolute;
+  right: -20px;
+  color: var(--primary-color);
+  font-weight: bold;
+  animation: checkmark 0.5s ease-in-out;
+}
+
+@keyframes checkmark {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Style pour la checkbox */
+.task-card .form-check-input {
+  width: 1.2em;
+  height: 1.2em;
+  margin-top: 0.25em;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid var(--primary-color);
+}
+
+.task-card .form-check-input:checked {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  animation: checkbox-pop 0.3s ease-in-out;
+}
+
+@keyframes checkbox-pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Style pour les badges de priorité */
+.task-card .badge-custom {
+  padding: 0.5em 1em;
+  font-weight: 500;
+  border-radius: var(--border-radius-xl);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.task-card .badge-custom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: 0.5s;
+}
+
+.task-card .badge-custom:hover::before {
+  transform: translateX(100%);
+}
+
+.task-card .badge-custom.bg-danger {
+  background: linear-gradient(45deg, #dc3545, #ff4d4d) !important;
+}
+
+.task-card .badge-custom.bg-warning {
+  background: linear-gradient(45deg, #ffc107, #ffdb4d) !important;
+  color: #000;
+}
+
+.task-card .badge-custom.bg-info {
+  background: linear-gradient(45deg, #0dcaf0, #4ddbff) !important;
+}
+
+/* Style pour le bouton de suppression */
+.task-card .fire-button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: none;
+  background: transparent;
+  color: #dc3545;
+  padding: 0.5em 1em;
+  border-radius: var(--border-radius-md);
+}
+
+.task-card .fire-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #dc3545, #ff4d4d);
+  opacity: 0;
+  transition: 0.3s ease;
+  z-index: -1;
+}
+
+.task-card .fire-button:hover {
+  color: white;
+  transform: translateY(-2px);
+}
+
+.task-card .fire-button:hover::before {
+  opacity: 1;
+}
+
+/* Animation d'apparition des tâches */
+.task-card {
+  animation: task-appear 0.5s ease-out forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes task-appear {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Effet de focus pour les tâches */
+.task-card:focus-within {
+  box-shadow: 0 0 0 3px rgba(100, 108, 255, 0.25);
+  transform: translateY(-5px);
+}
+
+/* Style pour le conteneur des tâches */
+.tasks-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+}
+
+@media (max-width: 768px) {
+  .tasks-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .task-card {
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .task-title {
+    font-size: var(--font-size-sm);
+  }
+  
+  .badge-custom {
+    padding: 0.3em 0.6em;
+    font-size: var(--font-size-xs);
+  }
+}
+
+/* Styles pour les boutons */
+.btn {
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  transition: var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: none;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+  opacity: 0;
+  z-index: -1;
+  transition: var(--transition-normal);
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+.btn:hover {
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: var(--primary-dark);
+}
+
+.btn-outline-primary {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+  color: white;
+}
+
+.btn-outline-danger {
+  background: transparent;
+  color: #dc3545;
+  border: 2px solid #dc3545;
+}
+
+.btn-outline-danger:hover {
+  color: white;
+}
+
+/* Bouton avec effet de brillance */
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: rotate(45deg);
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.btn-shine:hover::after {
+  opacity: 1;
+  animation: shine 1.5s infinite;
+}
+
+/* Bouton avec effet de pulsation */
+.btn-pulse {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(100, 108, 255, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(100, 108, 255, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(100, 108, 255, 0);
+  }
+}
+
+/* Bouton avec effet de bordure animée */
+.btn-border-animate {
+  position: relative;
+  background: transparent;
+  color: var(--primary-color);
+  border: none;
+  z-index: 1;
+}
+
+.btn-border-animate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+  background-size: 200% 100%;
+  animation: border-animation 3s linear infinite;
+  z-index: -1;
+}
+
+.btn-border-animate::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  right: 2px;
+  bottom: 2px;
+  background: white;
+  border-radius: calc(var(--border-radius-md) - 2px);
+  z-index: -1;
+}
+
+/* Bouton avec effet de 3D */
+.btn-3d {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-3d::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  transform: translateZ(-10px);
+  border-radius: var(--border-radius-md);
+}
+
+.btn-3d:hover {
+  transform: translateY(-5px) rotateX(5deg);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Bouton avec effet de glitch */
+.btn-glitch {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-glitch::before,
+.btn-glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--primary-color);
+  color: white;
+  clip: rect(0, 0, 0, 0);
+}
+
+.btn-glitch::before {
+  left: 2px;
+  text-shadow: -2px 0 var(--secondary-color);
+  animation: glitch-anim 3s infinite linear alternate-reverse;
+}
+
+.btn-glitch::after {
+  left: -2px;
+  text-shadow: -2px 0 var(--primary-color);
+  animation: glitch-anim2 3s infinite linear alternate-reverse;
+}
+
+/* Styles créatifs pour les cartes */
+.card {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  transition: var(--transition-normal);
+  margin-bottom: var(--spacing-md);
+  position: relative;
+  background: white;
+  border: none;
+  box-shadow: var(--shadow-md);
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Carte avec effet de glassmorphism */
+.card-glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Carte avec effet de gradient */
+.card-gradient {
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+}
+
+.card-gradient .card-title,
+.card-gradient .card-text {
+  color: white;
+}
+
+/* Carte avec effet de bordure animée */
+.card-border-animate {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-border-animate::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color), var(--primary-color));
+  background-size: 200% 100%;
+  animation: border-animation 3s linear infinite;
+  z-index: -1;
+}
+
+.card-border-animate::after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  background: white;
+  border-radius: calc(var(--border-radius-lg) - 5px);
+  z-index: -1;
+}
+
+/* Carte avec effet de holographique */
+.card-holographic {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-holographic::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    45deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.1) 30%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.1) 70%,
+    transparent 100%
+  );
+  transform: rotate(45deg);
+  animation: holographic 3s linear infinite;
+  pointer-events: none;
+}
+
+/* Carte avec effet de flip */
+.card-flip {
+  perspective: 1000px;
+  height: 300px;
+}
+
+.card-flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.card-flip:hover .card-flip-inner {
+  transform: rotateY(180deg);
+}
+
+.card-flip-front, .card-flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius-lg);
+}
+
+.card-flip-front {
+  background: linear-gradient(45deg, var(--primary-color), var(--primary-dark));
+  color: white;
+}
+
+.card-flip-back {
+  background: linear-gradient(45deg, var(--secondary-color), var(--secondary-light));
+  color: white;
+  transform: rotateY(180deg);
+}
+
+/* Carte avec effet de néon */
+.card-neon {
+  border: 2px solid var(--primary-color);
+  box-shadow: 0 0 5px var(--primary-color),
+              0 0 10px var(--primary-color),
+              0 0 15px var(--primary-color);
+  animation: neonPulse 1.5s ease-in-out infinite alternate;
+}
+
+/* Carte avec effet de particules */
+.card-particles {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-particles::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(100, 108, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  animation: particleMove 20s linear infinite;
+  z-index: -1;
+}
+
+/* Carte avec effet de distorsion */
+.card-distortion {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-distortion::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: skewX(-45deg) translateX(-100%);
+  transition: 0.5s;
+}
+
+.card-distortion:hover::before {
+  transform: skewX(-45deg) translateX(100%);
+}
+
+/* Carte avec effet de feu */
+.card-fire {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-fire::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background: linear-gradient(to top, rgba(255, 107, 0, 0.7), transparent);
+  animation: fire 2s infinite;
+}
+
+@keyframes fire {
+  0%, 100% {
+    height: 30%;
+    opacity: 0.7;
+  }
+  50% {
+    height: 40%;
+    opacity: 0.9;
+  }
+}
+
+/* Carte avec effet de texte qui se décompose */
+.card-text-glitch {
+  position: relative;
+}
+
+.card-text-glitch .card-title {
+  position: relative;
+  animation: glitch 1s linear infinite;
+}
+
+.card-text-glitch .card-title::before,
+.card-text-glitch .card-title::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.card-text-glitch .card-title::before {
+  left: 2px;
+  text-shadow: -2px 0 var(--secondary-color);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim 5s infinite linear alternate-reverse;
+}
+
+.card-text-glitch .card-title::after {
+  left: -2px;
+  text-shadow: -2px 0 var(--primary-color);
+  clip: rect(44px, 450px, 56px, 0);
+  animation: glitch-anim2 5s infinite linear alternate-reverse;
+}
+
+/* Carte avec effet de carte à jouer */
+.card-playing {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+}
+
+.card-playing:hover {
+  transform: rotateY(10deg) rotateX(5deg);
+}
+
+.card-playing::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  transform: translateZ(20px);
+  pointer-events: none;
+}
+
+/* Styles pour les formulaires */
+.form-control {
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-md);
+  transition: var(--transition-normal);
+}
+
+.form-control:focus {
+  box-shadow: 0 0 0 0.25rem rgba(100, 108, 255, 0.25);
+}
+
+/* Styles pour les modales */
+.modal-content {
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+}
+
+.modal-header {
+  border-top-left-radius: var(--border-radius-lg);
+  border-top-right-radius: var(--border-radius-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+.modal-body {
+  padding: var(--spacing-lg);
+}
+
+.modal-footer {
+  border-bottom-left-radius: var(--border-radius-lg);
+  border-bottom-right-radius: var(--border-radius-lg);
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+/* Styles pour les conteneurs */
+.container {
+  padding: var(--spacing-md);
+}
+
+/* Styles pour les grilles */
+.row {
+  margin-left: calc(var(--spacing-md) * -1);
+  margin-right: calc(var(--spacing-md) * -1);
+}
+
+.col, [class*="col-"] {
+  padding-left: var(--spacing-md);
+  padding-right: var(--spacing-md);
+}
+
+/* Styles pour les cartes de projet */
+.project-card {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  transition: var(--transition-normal);
+  margin-bottom: var(--spacing-lg);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+}
+
+.project-card .card-title {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.project-card .card-text {
+  font-size: var(--font-size-md);
+  color: var(--text-secondary);
+}
+
+/* Styles pour les listes */
+.list-group-item {
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-sm);
+  transition: var(--transition-normal);
+}
+
+.list-group-item:hover {
+  background-color: var(--bg-secondary);
+}
+
+/* Styles pour les tableaux */
+.table {
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+}
+
+.table th {
+  background-color: var(--bg-secondary);
+  font-weight: 600;
+  padding: var(--spacing-md);
+}
+
+.table td {
+  padding: var(--spacing-md);
+}
+
+/* Styles pour les alertes */
+.alert {
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Styles pour les badges */
+.badge {
+  font-size: var(--font-size-xs);
+  padding: 0.35em 0.65em;
+  border-radius: var(--border-radius-sm);
+}
+
+/* Styles pour les tooltips */
+.tooltip {
+  font-size: var(--font-size-sm);
+}
+
+/* Styles pour les popovers */
+.popover {
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+}
+
+/* Styles pour les dropdowns */
+.dropdown-menu {
+  border-radius: var(--border-radius-md);
+  box-shadow: var(--shadow-md);
+  padding: var(--spacing-xs);
+}
+
+.dropdown-item {
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+}
+
+/* Styles pour les paginations */
+.pagination {
+  margin-bottom: var(--spacing-md);
+}
+
+.page-link {
+  border-radius: var(--border-radius-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  margin: 0 var(--spacing-xs);
+}
+
+/* Styles pour les progress bars */
+.progress {
+  height: var(--spacing-md);
+  border-radius: var(--border-radius-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+/* Styles pour les spinners */
+.spinner-border {
+  width: var(--spacing-lg);
+  height: var(--spacing-lg);
+  border-width: 0.2em;
+}
+
+/* Styles pour les accordéons */
+.accordion-item {
+  border-radius: var(--border-radius-md);
+  margin-bottom: var(--spacing-sm);
+  overflow: hidden;
+}
+
+.accordion-button {
+  padding: var(--spacing-md);
+  font-size: var(--font-size-md);
+  font-weight: 500;
+}
+
+.accordion-body {
+  padding: var(--spacing-md);
+}
+
+/* Styles pour les tabs */
+.nav-tabs {
+  border-bottom: 1px solid var(--bg-secondary);
+  margin-bottom: var(--spacing-md);
+}
+
+.nav-tabs .nav-link {
+  border-radius: var(--border-radius-md) var(--border-radius-md) 0 0;
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+}
+
+.nav-tabs .nav-link.active {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+/* Styles pour les breadcrumbs */
+.breadcrumb {
+  margin-bottom: var(--spacing-md);
+  font-size: var(--font-size-sm);
+}
+
+/* Styles pour les cards */
+.card {
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  transition: var(--transition-normal);
+  margin-bottom: var(--spacing-md);
+}
+
+.card-header {
+  padding: var(--spacing-md);
+  background-color: var(--bg-secondary);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.card-body {
+  padding: var(--spacing-md);
+}
+
+.card-footer {
+  padding: var(--spacing-md);
+  background-color: var(--bg-secondary);
+  border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+/* Styles pour les jumbotrons */
+.jumbotron {
+  padding: var(--spacing-xl) var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+  background-color: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+}
+
+/* Styles pour les list groups */
+.list-group {
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+}
+
+/* Styles pour les input groups */
+.input-group {
+  margin-bottom: var(--spacing-md);
+}
+
+.input-group-text {
+  border-radius: var(--border-radius-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+}
+
+/* Styles pour les buttons groups */
+.btn-group {
+  border-radius: var(--border-radius-md);
+  overflow: hidden;
+}
+
+/* Styles pour les boutons de formulaire */
+.form-submit-btn {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  border: none;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: var(--border-radius-lg);
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+}
+
+.form-submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: 0.5s;
+}
+
+.form-submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+  background: linear-gradient(45deg, #2980b9, #3498db);
+}
+
+.form-submit-btn:hover::before {
+  transform: translateX(100%);
+}
+
+.form-submit-btn:active {
+  transform: translateY(1px);
+  box-shadow: 0 2px 10px rgba(52, 152, 219, 0.2);
+}
+
+.form-submit-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 70%);
+  opacity: 0;
+  transition: 0.5s;
+  transform: scale(0.5);
+}
+
+.form-submit-btn:hover::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Animation de pulsation pour le bouton */
+@keyframes buttonPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+  }
+}
+
+.form-submit-btn {
+  animation: buttonPulse 2s infinite;
+}
+
+/* Style pour le conteneur du bouton */
+.form-submit-container {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.form-submit-container::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #3498db, transparent);
+}
+
+/* Style pour le modal du formulaire */
+.modal-content {
+  border: none;
+  border-radius: var(--border-radius-lg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.modal-header {
+  background: linear-gradient(45deg, #3498db, #2980b9);
+  color: white;
+  border: none;
+  padding: 1.5rem;
+}
+
+.modal-title {
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.modal-body {
+  padding: 2rem;
+}
+
+/* Style pour les champs de formulaire */
+.form-control {
+  border: 2px solid transparent;
+  border-radius: var(--border-radius-md);
+  padding: 1rem;
+  transition: all 0.3s ease;
+  background: var(--bg-secondary);
+}
+
+.form-control:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 0 0.25rem rgba(52, 152, 219, 0.25);
+  transform: translateY(-2px);
+}
+
+.floating-label {
+  color: var(--text-secondary);
+}
+
+.floating-label > label {
+  padding: 1rem;
+} 

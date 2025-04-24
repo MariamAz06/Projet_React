@@ -1,0 +1,23 @@
+import { Navbar, Container, Nav } from 'react-bootstrap'; // Import des composants Bootstrap pour la barre de navigation
+import { Link } from 'react-router-dom'; // Import du composant Link pour la navigation avec React Router
+import styles from './Navigation.module.css'; // Import des styles CSS modules
+
+const Navigation = () => {
+  return (
+    <Navbar expand="lg" fixed="top" className={styles.navbar}> {/* Barre de navigation fixe en haut, responsive */}
+      <Container> {/* Conteneur pour centrer et organiser le contenu */}
+        <Navbar.Brand className={styles.brand}>Gestion de Projets</Navbar.Brand> {/* Nom/logo de l'application */}
+        <Navbar.Toggle aria-controls="basic-navbar-nav" /> {/* Bouton pour afficher/cacher la navigation en petit écran */}
+        <Navbar.Collapse id="basic-navbar-nav"> {/* Conteneur des liens de navigation */}
+          <Nav className="ms-auto"> {/* Aligne les liens à droite */}
+
+            <Nav.Link as={Link} to="/" className={styles.link}>Accueil</Nav.Link> {/* Lien vers la page d'accueil */}
+            <Nav.Link as={Link} to="/projects" className={styles.link}>Projets</Nav.Link> {/* Lien vers la page des projets */}
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+};
+
+export default Navigation;
