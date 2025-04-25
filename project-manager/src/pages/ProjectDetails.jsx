@@ -122,7 +122,9 @@ const ProjectDetails = () => {
       
       <div className="d-flex justify-content-between align-items-center mb-3">
         <h2>Tâches</h2> {/* Titre de la section tâches */}
-        <Button onClick={() => setShowTaskForm(true)}> {/* Bouton pour ajouter une nouvelle tâche */}
+        <Button onClick={() => {
+        setEditingTask(null);
+          setShowTaskForm(true);}}> {/* Bouton pour ajouter une nouvelle tâche */}
           + Ajouter une tâche
         </Button>
       </div>

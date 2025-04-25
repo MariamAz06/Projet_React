@@ -11,7 +11,10 @@ const TaskForm = ({ show, onHide, onSubmit, initialData }) => { // Destructurati
   const handleSubmit = (e) => {
     e.preventDefault(); // Empêche le comportement par défaut du formulaire
     onSubmit({ title, description, priority }); // Soumettre les données de la tâche
-    onHide(); // Fermer la modal après soumission
+    setTitle('');
+    setDescription('');
+    setPriority('basse');
+    onHide();
   };
 
   return (
