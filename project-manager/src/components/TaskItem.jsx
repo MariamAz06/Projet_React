@@ -1,5 +1,5 @@
-import { Card, Form, Button, Badge } from 'react-bootstrap'; // Importation des composants de Bootstrap
-import styles from './TaskItem.module.css'; // Importation des styles CSS modules
+import { Card, Form, Button, Badge } from 'react-bootstrap'; 
+import styles from './TaskItem.module.css'; 
 
 const TaskItem = ({ task, onToggle, onDelete }) => { // Destructuration des props : tâche, fonction de bascule (toggle) et fonction de suppression
   return (

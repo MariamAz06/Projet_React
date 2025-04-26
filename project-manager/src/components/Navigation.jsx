@@ -1,6 +1,6 @@
-import { Navbar, Container, Nav } from 'react-bootstrap'; // Import des composants Bootstrap pour la barre de navigation
-import { Link } from 'react-router-dom'; // Import du composant Link pour la navigation avec React Router
-import styles from './Navigation.module.css'; // Import des styles CSS modules
+import { Navbar, Container, Nav } from 'react-bootstrap'; 
+import { Link } from 'react-router-dom'; 
+import styles from './Navigation.module.css'; 
 
 const Navigation = () => {
   return (

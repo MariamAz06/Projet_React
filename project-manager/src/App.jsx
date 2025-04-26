@@ -1,10 +1,10 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'; // Importation des composants de routage
-import Navigation from './components/Navigation'; // Importation du composant de navigation
-import Home from './pages/Home'; // Importation de la page d'accueil
-import Projects from './pages/Projects'; // Importation de la page des projets
-import ProjectDetails from './pages/ProjectDetails'; // Importation de la page de détails d'un projet
-import './styles/main.css'; // Importation du fichier de styles principaux
-import './styles/animations.css'; // Importation du fichier de styles pour les animations
+import { BrowserRouter, Routes, Route } from 'react-router-dom'; 
+import Navigation from './components/Navigation'; 
+import Home from './pages/Home'; 
+import Projects from './pages/Projects'; 
+import ProjectDetails from './pages/ProjectDetails'; 
+import './styles/main.css'; 
+import './styles/animations.css'; 
 
 function App() {
   return (

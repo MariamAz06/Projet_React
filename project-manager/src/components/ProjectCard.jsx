@@ -1,6 +1,6 @@
-import { Card, Button, Badge } from 'react-bootstrap'; // Importation des composants Bootstrap nécessaires
-import { Link } from 'react-router-dom'; // Importation du composant Link pour la navigation avec React Router
-import styles from './ProjectCard.module.css'; // Importation des styles CSS modules
+import { Card, Button, Badge } from 'react-bootstrap'; 
+import { Link } from 'react-router-dom'; 
+import styles from './ProjectCard.module.css'; 
 
 const ProjectCard = ({ project, onDelete }) => { // Destructuration des props : projet et fonction de suppression
   const completedTasks = project.tasks?.filter(task => task.completed).length || 0; // Nombre de tâches complétées

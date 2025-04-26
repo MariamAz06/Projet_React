@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react'; // Importation des hooks React pour gérer l'état et les effets
-import { Form, Button, Modal, FloatingLabel } from 'react-bootstrap'; // Importation des composants Bootstrap pour les formulaires et les modales
-import styles from './ProjectForm.module.css'; // Importation des styles CSS modules
+import { useState, useEffect } from 'react'; 
+import { Form, Button, Modal, FloatingLabel } from 'react-bootstrap'; 
+import styles from './ProjectForm.module.css'; 
 
 const ProjectForm = ({ show, onHide, onSubmit, initialData }) => { // Destructuration des props : état de la modal, fonction pour la fermer, fonction pour soumettre le formulaire et données initiales
   const [title, setTitle] = useState(''); // État pour le titre du projet

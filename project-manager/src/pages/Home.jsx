@@ -1,5 +1,5 @@
-import { Container, Row, Col, Button } from 'react-bootstrap'; // Import des composants Bootstrap pour la mise en page
-import { Link } from 'react-router-dom'; // Import du composant Link pour la navigation sans rechargement
+import { Container, Row, Col, Button } from 'react-bootstrap'; 
+import { Link } from 'react-router-dom'; 
 
 // Composant fonctionnel Home
 const Home = () => {

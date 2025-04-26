@@ -1,6 +1,6 @@
-import { useState } from 'react'; // Importation de useState pour gérer l'état local
-import { Form, Button, Modal, FloatingLabel } from 'react-bootstrap'; // Importation des composants de Bootstrap pour le formulaire et la modal
-import styles from './TaskForm.module.css'; // Importation des styles CSS modules
+import { useState } from 'react'; 
+import { Form, Button, Modal, FloatingLabel } from 'react-bootstrap'; 
+import styles from './TaskForm.module.css'; 
 
 const TaskForm = ({ show, onHide, onSubmit, initialData }) => { // Destructuration des props : état de la modal, fonction de fermeture, fonction de soumission et données initiales
   const [title, setTitle] = useState(initialData?.title || ''); // État pour le titre de la tâche, initialisé avec initialData si disponible

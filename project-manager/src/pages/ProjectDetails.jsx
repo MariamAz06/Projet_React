@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'; // Importation de useState et useEffect pour gérer l'état et les effets secondaires
-import { useParams, Link, useNavigate } from 'react-router-dom'; // Importation des hooks pour la gestion des paramètres et de la navigation
-import { doc, getDoc, updateDoc } from 'firebase/firestore'; // Importation des fonctions Firebase pour manipuler les documents
-import { db } from '../services/firebase'; // Importation de la configuration Firebase
-import { Button, Card, ListGroup, Badge, Alert, Container, Stack } from 'react-bootstrap'; // Importation des composants Bootstrap
-import TaskForm from '../components/TaskForm'; // Importation du formulaire de tâche
-import TaskItem from '../components/TaskItem'; // Importation de l'élément de tâche
+import { useState, useEffect } from 'react'; 
+import { useParams, Link, useNavigate } from 'react-router-dom'; 
+import { doc, getDoc, updateDoc } from 'firebase/firestore'; 
+import { db } from '../services/firebase'; 
+import { Button, Card, ListGroup, Badge, Alert, Container, Stack } from 'react-bootstrap'; 
+import TaskForm from '../components/TaskForm'; 
+import TaskItem from '../components/TaskItem'; 
 
 const ProjectDetails = () => {
   const { id } = useParams(); // Récupère l'ID du projet depuis l'URL
